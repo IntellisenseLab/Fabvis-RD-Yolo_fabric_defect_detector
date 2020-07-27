@@ -1,5 +1,60 @@
 # FABRIC STAIN DETECTION USING YOLOv3
 
+## CONTENTS
+
+- [Demo](https://github.com/PrimeshShamilka/fabric_defect_detector/blob/master/README.md#demo)
+- [1. Problem definition](https://github.com/PrimeshShamilka/fabric_defect_detector#problem)
+- [2. Proposed solution](https://github.com/PrimeshShamilka/fabric_defect_detector#our-solution)
+- [3. System design](https://github.com/PrimeshShamilka/fabric_defect_detector#system-design)
+- [4. Stain detection module](https://github.com/PrimeshShamilka/fabric_defect_detector#stain-detection-module)
+- [5. Training the model](https://github.com/PrimeshShamilka/fabric_defect_detector#training-the-stain-detection-model)
+- [6. Techniques used to improve the model accuracy](https://github.com/PrimeshShamilka/fabric_defect_detector#techniques-used-to-improve-model-accuracy)
+- [7. Validating the model using a custom dataset](https://github.com/PrimeshShamilka/fabric_defect_detector#validating-the-model-using-a-custom-dataset)
+- [8. Dimension clustering of target frames to determine the size and number of anchor boxes](https://github.com/PrimeshShamilka/fabric_defect_detector#dimension-clustering-of-target-frames-to-determine-the-size-and-number-of-anchor-boxesprior-boxes)
+- [9. Results](https://github.com/PrimeshShamilka/fabric_defect_detector#results)
+- [10. References](https://github.com/PrimeshShamilka/fabric_defect_detector#references)
+
+<br/>
+
+## DEMO
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=WDOfIpKW65c
+" target="_blank"><img src="http://img.youtube.com/vi/WDOfIpKW65c/0.jpg" 
+alt="" width="480" height="360" border="1" /></a>
+
+<br/>
+
+### How to run?
+
+#### For Linux 
+
+- Run the following commands in a terminal
+
+```
+   git clone https://github.com/AlexeyAB/darknet.git
+   cd darknet
+   make
+```
+
+- Donwload the configuration file of the model from the link below and copy it to cfg directory inside darknet root directory \
+  https://drive.google.com/file/d/12ikV938ZEXWjoITYW6mE0FqoZQbyET1v/view?usp=sharing
+  
+- Download obj.data, classes.names files from the links below and copy them to data directory inside darknet root directory
+  obj.data file - https://drive.google.com/file/d/1B54Q4VQjlHVkLoQb132EgBjyEJ0lJ0yy/view?usp=sharing \
+  classes.names file - https://drive.google.com/file/d/1WBVQI6e0p7TQtTExXbRUcwaG5N9A9xwL/view?usp=sharing
+
+- Download the trained weight file for the model from the link below and copy the weights to backup directory inside darknet root directory \
+  https://drive.google.com/file/d/18GULkIGA2Qpg4rfYbp2moGaZLoxtjuAw/view?usp=sharing
+
+- Test on a video feed
+
+``` 
+  ./darknet detector demo data/obj.data cfg/yolov3.cfg backup/stain_detection_model.weights test.mp4 
+```
+
+
+<br/>
+
 ## PROBLEM
 
 ### Fabric defect detection in textile production
